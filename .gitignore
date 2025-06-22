@@ -1,0 +1,75 @@
+# =================================================================
+# General
+# =================================================================
+# Compiled source #
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+# it's better to rebuilt manually
+# /pkg/
+# /bin/
+
+# =================================================================
+# C++ / CMake Build Artifacts
+# =================================================================
+# Ignore the primary build directory where all binaries, libraries,
+# and temporary compilation files are stored.
+/build/
+
+# Ignore other possible cmake files if they are generated outside the build dir
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# =================================================================
+# Go Artifacts
+# =================================================================
+# Ignore Go build executables. The final binary is a build artifact.
+# The name is often the directory name, e.g. 'gateway' if built inside that folder.
+/gateway/gateway
+
+# Ignore vendor directory, unless you specifically want to check in dependencies
+/vendor/
+/gateway/vendor/
+
+# =================================================================
+# Generated Protocol Buffer Files
+# =================================================================
+# The README provides instructions on how to generate these files.
+# They are build artifacts, not source code.
+# This ensures that anyone building the project generates them from the .proto source of truth.
+/gateway/proto/*.go
+
+# =================================================================
+# IDE and Editor Configuration
+# =================================================================
+# Visual Studio Code
+.vscode/
+
+# CLion, GoLand, and other JetBrains IDEs
+.idea/
+
+# Vim
+*~
+*.swp
+*.swo
+
+# =================================================================
+# Operating System Files
+# =================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
