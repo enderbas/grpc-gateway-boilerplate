@@ -4,16 +4,32 @@ package greeter.v1;
 
 // Import Google's HTTP annotations
 import "google/api/annotations.proto";
+// Import the OpenAPI v2 annotations
+import "protoc-gen-openapiv2/options/annotations.proto";
 
-option go_package = "example.com/gateway";
+option go_package = "example.com/gateway/proto";
+
+// Add general API metadata for OpenAPI
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "Greeter Service API";
+    version: "1.0";
+    contact: {
+      name: "Your Project Name";
+      url: "https://github.com/your-repo/your-project";
+      email: "your-email@example.com";
+    };
+  };
+  schemes: [HTTP, HTTPS];
+  consumes: "application/json";
+  produces: "application/json";
+};
+
 
 // The greeting service definition.
 service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply) {
-    // This annotation maps this RPC to a RESTful endpoint.
-    // It will respond to POST requests on the /v1/greeter/say_hello path.
-    // The body of the POST request will be mapped to the HelloRequest message.
     option (google.api.http) = {
       post: "/v1/greeter/say_hello"
       body: "*"
